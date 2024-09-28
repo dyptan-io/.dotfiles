@@ -1,0 +1,36 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	excludesfile = ~/.gitignore.global
+	commentchar = $
+	editor = vim
+	autocrlf = input
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = "code --wait "
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = "code --wait --diff  "
+[alias]
+	amend = commit --amend --no-edit --date=now
+	fetch = fetch --tags
+	co = checkout
+	cap = "!f(){ git commit -a --amend --no-edit --date=now && git push -f; }; f"
+[credential]
+	helper = osxkeychain
+[pull]
+	rebase = true
+[web]
+  browser = google-chrome
+[user]
+	name = Volodymyr Dyptan
+	email = diptanw@gmail.com
+[includeIf "gitdir:~/Sources/logicmonitor/"]
+    path = .gitconfig.work
+[url "ssh://git@github.com/"]
+ 	insteadOf = https://github.com/

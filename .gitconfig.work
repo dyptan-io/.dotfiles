@@ -1,0 +1,5 @@
+[user]
+	name = Volodymyr Dyptan
+	email = volodymyr.dyptan@logicmonitor.com
+[url "ssh://git@stash.logicmonitor.com:7999/"]
+	insteadOf = https://stash.logicmonitor.com/
