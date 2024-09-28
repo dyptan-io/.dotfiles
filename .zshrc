@@ -109,5 +109,4 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-export SSH_SK_PROVIDER=/usr/local/lib/libsk-libfido2.dylib
-export SSH_SK_PROVIDER=/usr/local/lib/libsk-libfido2.dylib
+
