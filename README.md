@@ -21,6 +21,7 @@ yadm clone https://github.com/diptanw/.dotfiles.git
 ### Bootstrap the software installation
 
 ```bash
+yadm checkout home
 yadm bootstrap
 ```
 
