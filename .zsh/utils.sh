@@ -17,6 +17,7 @@ function kubecfg() {
   echo Updating kubecfg:
   readonly AWS_PR=${1:?"The AWS Profile must be specified!"}
   aws sso login --profile "$AWS_PR"
+  
   for region in us-west-2 us-east-1 eu-west-1 ap-northeast-1 ap-southeast-2; do
     for cluster in $(aws --profile "$AWS_PR" --region ${region} eks list-clusters 2> /dev/null | jq -r ".clusters | .[]"); do
       echo Updating ${region}:${cluster}
