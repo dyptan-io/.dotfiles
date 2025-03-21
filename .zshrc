@@ -44,7 +44,7 @@ ZSH_THEME="minimal-volo"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -110,4 +110,5 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+export SSH_SK_PROVIDER=/usr/local/lib/libsk-libfido2.dylib
 export SSH_SK_PROVIDER=/usr/local/lib/libsk-libfido2.dylib

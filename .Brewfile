@@ -2,7 +2,7 @@ tap "homebrew/autoupdate"
 tap "homebrew/bundle"
 tap "homebrew/services"
 
-# brew "michaelroosz/ssh/libsk-libfido2-install"
+brew "libsk-libfido2"
 
 cask "visual-studio-code"
 cask "monitorcontrol"
