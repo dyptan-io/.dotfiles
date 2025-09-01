@@ -109,3 +109,9 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export SSH_SK_PROVIDER=/usr/local/lib/libsk-libfido2.dylib
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/volodymyr.dyptan/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

@@ -30,3 +30,7 @@
 [user]
 	name = Volodymyr Dyptan
 	email = diptanw@gmail.com
+[includeIf "gitdir:~/Sources/work/**"]
+    path="~/gitconfig.work"
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
