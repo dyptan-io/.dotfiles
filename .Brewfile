@@ -1,7 +1,6 @@
 tap "homebrew/autoupdate"
-tap "theseal/ssh-askpass"
 
-cask "michaelroosz/ssh/libsk-libfido2-install"
+brew "rtk"
 
 cask "visual-studio-code"
 cask "monitorcontrol"
