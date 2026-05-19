@@ -20,13 +20,19 @@
 	amend = commit --amend --no-edit --date=now
 	fetch = fetch --tags
 	co = checkout
-	cap = "!f(){ git commit -a --amend --no-edit --date=now && git push -f; }; f"
+	cap = "!f(){ git commit -a --amend --no-edit --date=now && git push --force-with-lease; }; f"
 [credential]
 	helper = osxkeychain
 [pull]
 	rebase = true
+[push]
+	autoSetupRemote = true
 [web]
   browser = google-chrome
 [user]
 	name = Volodymyr Dyptan
 	email = diptanw@gmail.com
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[includeIf "gitdir:~/Sources/epidemic/**"]
+    path="~/.gitconfig.work"
