@@ -1,6 +1,7 @@
-# External Tools to Use
+# Always use these tools when possible
 
 @tools/CODEGRAPH.md
+
 @tools/RTK.md
 
 ## Git commits and PRs

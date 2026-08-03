@@ -1,7 +1,7 @@
+# Compress a prose file into caveman speak, preserving code/paths/URLs
+
 Compress a prose file (`.md`/`.txt`, given as argument, or ask which) into caveman speak to
 cut input tokens. Only touch prose files — never `.py`/`.js`/`.ts`/`.json`/`.yaml`/`.sh`/etc.
-
-Before overwriting, copy the file to `<file>.original.md` as a backup.
 
 Remove: articles, filler ("just", "basically", "really"), pleasantries ("sure!", "I'd recommend"),
 hedging ("it might be worth"), connective fluff ("however", "furthermore"). Use fragments over

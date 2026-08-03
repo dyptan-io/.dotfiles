@@ -1,5 +1,4 @@
-
-## Strip obvious comments and compact verbose ones, editing files directly
+# Strip obvious comments and compact verbose ones, editing files directly
 
 Clean up comments in the current diff's changed files (or given file/path args, if any).
 
