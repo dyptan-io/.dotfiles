@@ -1,6 +1,6 @@
 # Commit all diffs on the current branch and open a PR with a simple, human-sounding description
 
-Open a PR for all changes on the current branch. Use what you already know from this conversation about what changed and why — don't re-derive it via `git diff`.
+Open a PR for all changes on the current branch. Use what you already know from this conversation about what changed and why — don't re-derive it via `git diff`. Follow .github/pull_request_template.md if present.
 
 1. `git status` to see changes.
 2. Stage all changed files except handoff/notes-to-self docs (`HANDOFF.md`, `HANDOVER.md`, etc.) — those stay local.
