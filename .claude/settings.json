@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk *)",
+      "mcp__codegraph__*"
+    ],
+    "defaultMode": "default"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "cyan=$(tput bold; tput setaf 6); yellow=$(tput setaf 3); green=$(tput setaf 2); reset=$(tput sgr0); input=$(cat); model=$(echo \"$input\" | jq -r '.model.display_name // \"?\"'); cost=$(echo \"$input\" | jq -r '.cost.total_cost_usd // 0 | \"$\" + (. * 10000 | round / 10000 | tostring)'); effort=$(jq -r '.effortLevel // \"?\"' \"$HOME/.claude/settings.json\" 2>/dev/null); printf \"${cyan}%s${reset}  ${yellow}effort:%s${reset}  ${green}%s${reset}\\n\" \"$model\" \"$effort\" \"$cost\""
+  },
+  "effortLevel": "low",
+  "advisorModel": "opus",
+  "awaySummaryEnabled": false,
+  "askUserQuestionTimeout": "10m",
+  "tui": "fullscreen",
+  "theme": "dark",
+  "skipAutoPermissionPrompt": true
+}
