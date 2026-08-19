@@ -6,6 +6,7 @@
     ],
     "defaultMode": "acceptEdits"
   },
+  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -25,7 +26,8 @@
   "workflowKeywordTriggerEnabled": false,
   "statusLine": {
     "type": "command",
-    "command": "cyan=$(tput bold; tput setaf 6); yellow=$(tput setaf 3); green=$(tput setaf 2); reset=$(tput sgr0); input=$(cat); model=$(echo \"$input\" | jq -r '.model.display_name // \"?\"'); cost=$(echo \"$input\" | jq -r '.cost.total_cost_usd // 0 | \"$\" + (. * 10000 | round / 10000 | tostring)'); effort=$(jq -r '.effortLevel // \"?\"' \"$HOME/.claude/settings.json\" 2>/dev/null); printf \"${cyan}%s${reset}  ${yellow}effort:%s${reset}  ${green}%s${reset}\\n\" \"$model\" \"$effort\" \"$cost\""
+    "command": "c=$(tput bold; tput setaf 6); y=$(tput setaf 3); g=$(tput setaf 2); d=$(tput setaf 8); r=$(tput sgr0); v=$(jq -r 'def ts: if type==\"string\" then fromdateiso8601 else . end; def left: if . == null then \"\" else (ts - now) as $s | if $s <= 0 then \"now\" else (($s/3600)|floor) as $h | ((($s%3600)/60)|floor) as $m | if $h > 0 then \"\\($h)h\\($m)m\" else \"\\($m)m\" end end end; [ .model.display_name // \"?\", .effort.level // \"\", ((.cost.total_cost_usd // 0)|tostring), (if .rate_limits.five_hour then (.rate_limits.five_hour.used_percentage|round|tostring) else \"\" end), (.rate_limits.five_hour.resets_at // null | left) ] | @tsv'); IFS=$'\\t' read -r model effort cost pct left <<< \"$v\"; out=\"${c}${model}${r}\"; [ -n \"$effort\" ] && out=\"$out  ${y}${effort}${r}\"; out=\"$out  ${g}\\$$(printf '%.2f' \"$cost\")${r}\"; [ -n \"$pct\" ] && out=\"$out  ${d}${pct}% · ${left}${r}\"; printf '%s\\n' \"$out\"",
+    "refreshInterval": 60
   },
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true
