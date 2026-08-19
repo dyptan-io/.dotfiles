@@ -21,6 +21,10 @@ when its hunk is enough. No history beyond `git log --oneline -5` for message st
 
 ## The description
 
+**Follow the repository template if present** 
+
+If the repo has a PR [template](.github/PULL_REQUEST_TEMPLATE.md), follow structure and tags.
+
 Short. What was done and why, in plain human language.
 
 **Title** - one line, what changed.

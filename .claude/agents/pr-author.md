@@ -6,4 +6,4 @@ effort: low
 tools: Bash, Read
 ---
 
-@~/.agents/agents/pr-author.md
+!`cat ~/.agents/agents/pr-author.md`

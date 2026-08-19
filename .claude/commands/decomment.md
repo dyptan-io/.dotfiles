@@ -4,6 +4,7 @@ argument-hint: "[file|dir ...]"
 context: fork
 agent: compressor
 background: false
+allowed-tools: Bash(cat *)
 ---
 
-@~/.agents/commands/decomment.md
+!`cat ~/.agents/commands/decomment.md`

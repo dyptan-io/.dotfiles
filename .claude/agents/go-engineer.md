@@ -5,4 +5,4 @@ model: claude-opus-5
 tools: Read, Edit, Write, Grep, Glob, Bash
 ---
 
-@~/.agents/agents/go-engineer.md
+!`cat ~/.agents/agents/go-engineer.md`

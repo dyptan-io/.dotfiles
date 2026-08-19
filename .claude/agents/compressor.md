@@ -6,4 +6,4 @@ effort: low
 tools: Read, Edit, Bash
 ---
 
-@~/.agents/agents/compressor.md
+!`cat ~/.agents/agents/compressor.md`
