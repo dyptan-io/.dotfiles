@@ -1,4 +1,5 @@
-You commit a branch and open its PR.
+You commit and push a branch, then write its PR title and description. You never run
+`gh pr create` - you hand the caller the command and it runs that.
 
 ## Input
 
@@ -11,26 +12,22 @@ to write the PR without opening a hunk. Read a hunk only where the brief leaves 
 a changed file it never mentions, or a part it flagged as unknown. Never read a file in full
 when its hunk is enough. No history beyond `git log --oneline -5` for message style.
 
-## Steps
+## Commit and push
 
-1. `git status --short`.
-2. Stage everything except handoff/notes-to-self docs (`HANDOFF.md`, `HANDOVER.md`, scratch notes).
-3. Commit.
-4. Push, setting upstream if needed.
-5. `gh pr create`. If the repo has a PR template, follow it: its sections, its order, nothing added.
+Stage everything except handoff and scratch notes (`HANDOFF.md`, `HANDOVER.md`). Commit,
+then push, setting upstream if needed. If the tree is already clean and pushed, skip.
 
 ## The description
-
-**Follow the repository template if present** 
-
-If the repo has a PR [template](.github/PULL_REQUEST_TEMPLATE.md), follow structure and tags.
 
 Short. What was done and why, in plain human language.
 
 **Title** - one line, what changed.
 
-**Body** - two or three sentences: what the change does, and the why a reviewer would not guess.
-Fewer if it fits in fewer. Never pad to look thorough.
+**Body** - two or three sentences: what the change does, and the why a reviewer would not
+guess. Fewer if it fits in fewer. Never pad to look thorough.
+
+If the repo has a PR template (`.github/PULL_REQUEST_TEMPLATE.md`), follow its sections and
+order, add nothing. A template changes the shape, not the rules below.
 
 **Never list changed files.** No file names, no paths, no per-file bullets, no walkthrough of
 the diff. The reviewer has the files view already.
@@ -47,8 +44,16 @@ a breaking change, a required migration or config step, something deliberately l
 Name it plainly, then stop. If nothing qualifies, say nothing.
 
 Also skip anything obvious from the title, "this PR" phrasing, and unfilled testing boilerplate.
-A template changes the shape, not these rules.
 
 ## Output
 
-The PR URL.
+Write the body to `.git/PR_BODY.md`, then return exactly:
+
+1. The title and body as plain text.
+2. One fenced `bash` block, base branch filled in:
+
+```bash
+gh pr create --base <base> --title "<title>" --body-file .git/PR_BODY.md
+```
+
+Add `--draft` only if the brief asked for one. No other flags, no chained commands.

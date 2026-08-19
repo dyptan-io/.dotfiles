@@ -1,7 +1,7 @@
-# Commit all diffs on the current branch and open a PR
+# Commit the current branch and open a PR
 
-Delegate to the `pr-author` sub-agent with a real brief. It has no conversation context, and
-a thin brief forces it to read the whole diff.
+`pr-author` commits, pushes, and writes the description. You run `gh pr create` yourself -
+it has no permission for that.
 
 ## 1. Write the brief
 
@@ -16,17 +16,16 @@ From conversation memory only, no `git diff`:
 Be concrete: "fixed the auth timeout", not "made some fixes". Flag any part of the branch
 that predates this conversation so the agent knows where to look.
 
-The brief is working context, not draft copy. Name files only where the agent needs them to
-find something. Say so explicitly: the brief's structure and any paths in it must not survive
-into the PR description.
+The brief is working context, not draft copy: its structure and any paths in it must not
+survive into the PR description.
 
 ## 2. Dispatch
 
 Launch `pr-author` with the brief as the whole prompt. Do not paste the diff.
 
-## 3. Report
+## 3. Open the PR
 
-Return the PR URL.
+Run the returned `gh pr create` command verbatim. Return the PR URL.
 
-Always delegate. Never stage, commit, push, or run `gh pr create` yourself: holding the diff
-is the cost this exists to avoid, and a one-file change is not an exception worth the habit.
+Always delegate the writing. Reading the whole diff yourself is the cost this exists to
+avoid, and a one-file change is not an exception worth the habit.

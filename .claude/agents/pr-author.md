@@ -1,6 +1,6 @@
 ---
 name: pr-author
-description: Commit the current branch's changes, push, and open a PR with a minimal but useful description
+description: Commit and push the current branch, then hand back a PR description plus the gh command the caller runs to open it
 model: claude-sonnet-5
 effort: low
 tools: Bash, Read
