@@ -4,7 +4,7 @@
       "Bash(rtk *)",
       "mcp__codegraph__*"
     ],
-    "defaultMode": "default"
+    "defaultMode": "acceptEdits"
   },
   "hooks": {
     "PreToolUse": [
@@ -19,9 +19,16 @@
       }
     ]
   },
+  "worktree": {
+    "baseRef": "fresh"
+  },
+  "workflowKeywordTriggerEnabled": false,
   "statusLine": {
     "type": "command",
     "command": "cyan=$(tput bold; tput setaf 6); yellow=$(tput setaf 3); green=$(tput setaf 2); reset=$(tput sgr0); input=$(cat); model=$(echo \"$input\" | jq -r '.model.display_name // \"?\"'); cost=$(echo \"$input\" | jq -r '.cost.total_cost_usd // 0 | \"$\" + (. * 10000 | round / 10000 | tostring)'); effort=$(jq -r '.effortLevel // \"?\"' \"$HOME/.claude/settings.json\" 2>/dev/null); printf \"${cyan}%s${reset}  ${yellow}effort:%s${reset}  ${green}%s${reset}\\n\" \"$model\" \"$effort\" \"$cost\""
+  },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "effortLevel": "low",
   "awaySummaryEnabled": false,
@@ -29,5 +36,6 @@
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
+  "switchModelsOnFlag": true,
   "skipAutoPermissionPrompt": true
 }

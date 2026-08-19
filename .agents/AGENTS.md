@@ -25,8 +25,8 @@ Write normal prose only when compression risks ambiguity.
 
 ## Git
 
-Never list the assistant as author or co-author. No `Co-Authored-By`
-trailers or similar attribution in commits or PR descriptions.
+- Never list the assistant as author or co-author. No `Co-Authored-By` trailers or similar.
+- Commit messages and PR descriptions: same terse style as Output Style. No filler.
 
 ## External Tools
 

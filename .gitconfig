@@ -8,32 +8,33 @@
 [mergetool "vscode"]
 	cmd = "code --wait "
 [diff]
-    tool = vscode
-    colorMoved = zebra
-    algorithm = histogram
+	tool = vscode
+	colorMoved = zebra
+	algorithm = histogram
 [merge]
-    tool = vscode
-    conflictStyle = zdiff3
+	tool = vscode
+	conflictStyle = zdiff3
 [difftool "vscode"]
 	cmd = "code --wait --diff  "
 [alias]
-    co  = switch
-    cap = "!git commit -a --amend --no-edit --date=now && git push --force-with-lease"
+	co  = switch
+	cap = "!git commit -a --amend --no-edit --date=now && git push --force-with-lease"
 	cleanup = "!git branch --merged | grep -E -v '^(\\*|\\s*(main|master|dev)\\s*$)' | xargs -r git branch -d"
 	lg = log --graph --all --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(blue)<%an>%C(auto)%d'
 [credential]
 	helper = osxkeychain
 [pull]
 	rebase = true
+[rebase]
 	autoStash = true
 [push]
 	autoSetupRemote = true
 	protectedBranches = main, master
 [submodule]
-    recurse = true
+	recurse = false
 [fetch]
-    prune = true
-    pruneTags = true
+	prune = true
+	pruneTags = true
 [web]
 	browser = google-chrome
 [user]
@@ -42,4 +43,6 @@
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [includeIf "gitdir:~/Sources/epidemic/**"]
-    path="~/.gitconfig.work"
+	path = "~/.gitconfig.work"
+[status]
+	submodulesummary = true
