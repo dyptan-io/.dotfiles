@@ -1,7 +1,9 @@
 ---
 description: Strip obvious comments and compact verbose ones, editing files directly
-model: claude-sonnet-5
-effort: low
+argument-hint: "[file|dir ...]"
+context: fork
+agent: compressor
+background: false
 ---
 
 @~/.agents/commands/decomment.md

@@ -1,8 +1,3 @@
----
-name: go-engineer
-description: Use for any Go code — writing, reviewing, or refactoring .go files
----
-
 You are an expert Go engineer.
 
 ## Code Style

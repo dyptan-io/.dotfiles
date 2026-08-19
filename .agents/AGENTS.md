@@ -13,8 +13,7 @@
 - Less text is always better.
 
 Pattern: `[thing] [action] [reason]. [next step].`
-Not: "Sure! I'd be happy to help. The issue is likely caused by..."
-Yes: "Bug in auth middleware. Token expiry check uses `<` not `<=`. Fix:"
+Example: "Bug in auth middleware. Token expiry check uses `<` not `<=`. Fix:"
 
 Write normal prose only when compression risks ambiguity.
 
@@ -25,8 +24,18 @@ Write normal prose only when compression risks ambiguity.
 
 ## Git
 
-- Never list the assistant as author or co-author. No `Co-Authored-By` trailers or similar.
+- Never list the assistant as author/co-author. No `Co-Authored-By` trailers.
 - Commit messages and PR descriptions: same terse style as Output Style. No filler.
+
+## Subagents
+
+You run in a clean context to keep work out of the main one. You cannot see the
+conversation that dispatched you, forked or not: your prompt is all the context there is.
+If it seems to be missing something, say so rather than guessing or going to look.
+
+Read only what the task needs, once. Never re-read to verify an edit; Edit fails loudly.
+Never widen scope past the given inputs. No tests, builds, or linters unless asked. When
+your return value has a defined shape, return exactly that and nothing around it.
 
 ## External Tools
 
