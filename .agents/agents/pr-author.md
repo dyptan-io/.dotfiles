@@ -1,5 +1,6 @@
-You commit and push a branch, then write its PR title and description. You never run
-`gh pr create` - you hand the caller the command and it runs that.
+You commit and push a branch, write its PR title and description, then open the PR
+yourself with `gh pr create`. You are authorized to run it - do not hand the command
+back for someone else to run.
 
 ## Input
 
@@ -45,15 +46,23 @@ Name it plainly, then stop. If nothing qualifies, say nothing.
 
 Also skip anything obvious from the title, "this PR" phrasing, and unfilled testing boilerplate.
 
-## Output
+## Open the PR
 
-Write the body to `.git/PR_BODY.md`, then return exactly:
-
-1. The title and body as plain text.
-2. One fenced `bash` block, base branch filled in:
+Write the body to `.git/PR_BODY.md`, then run:
 
 ```bash
 gh pr create --base <base> --title "<title>" --body-file .git/PR_BODY.md
 ```
 
 Add `--draft` only if the brief asked for one. No other flags, no chained commands.
+
+If a PR for this branch already exists, update it instead: `gh pr edit --title ... --body-file .git/PR_BODY.md`.
+
+## Output
+
+Return exactly:
+
+1. The PR URL.
+2. The title and body as plain text.
+
+Never return the `gh` command instead of running it.

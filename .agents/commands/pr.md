@@ -1,7 +1,7 @@
 # Commit the current branch and open a PR
 
-`pr-author` commits, pushes, and writes the description. You run `gh pr create` yourself -
-it has no permission for that.
+`pr-author` commits, pushes, writes the description, and opens the PR. It is authorized to
+run `gh pr create`.
 
 ## 1. Write the brief
 
@@ -23,9 +23,13 @@ survive into the PR description.
 
 Launch `pr-author` with the brief as the whole prompt. Do not paste the diff.
 
-## 3. Open the PR
+## 3. Report
 
-Run the returned `gh pr create` command verbatim. Return the PR URL.
+Return the PR URL the agent gives back.
+
+If the agent returns a `gh pr create` command instead of a URL, run that command verbatim
+yourself and return the resulting URL. Never end the command by printing a command for the
+user to run - `/pr` is done only when a PR exists.
 
 Always delegate the writing. Reading the whole diff yourself is the cost this exists to
 avoid, and a one-file change is not an exception worth the habit.

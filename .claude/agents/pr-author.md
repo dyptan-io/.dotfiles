@@ -1,9 +1,9 @@
 ---
 name: pr-author
-description: Commit and push the current branch, then hand back a PR description plus the gh command the caller runs to open it
+description: Commit and push the current branch, write the PR description, and open the PR with gh pr create
 model: claude-sonnet-5
 effort: low
-tools: Bash, Read
+tools: Bash, Read, Write
 ---
 
 !`cat ~/.agents/agents/pr-author.md`
