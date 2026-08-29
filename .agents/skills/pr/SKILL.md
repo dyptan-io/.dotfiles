@@ -1,3 +1,9 @@
+---
+name: pr
+description: Commit all diffs on the current branch and open a PR with a simple, human-sounding description, delegating to the pr-author subagent.
+allowed-tools: Agent, Bash(gh pr *), Bash(git *)
+---
+
 # Commit the current branch and open a PR
 
 `pr-author` commits, pushes, writes the description, and opens the PR. It is authorized to

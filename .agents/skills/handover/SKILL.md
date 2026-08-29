@@ -1,3 +1,8 @@
+---
+name: handover
+description: Write a handover doc to docs/handovers/ so the next agent can resume from a clean context. Optional argument names the target agent.
+---
+
 # Write a handover doc so the next agent can resume from a clean context
 
 Argument: the target agent this is written for (e.g. `simplify`, `code-review`). Optional.
