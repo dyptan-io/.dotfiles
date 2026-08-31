@@ -2,15 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(rtk *)",
-      "mcp__codegraph__*",
-      "Bash(gh pr create:*)",
-      "Bash(gh pr edit:*)",
-      "Bash(gh pr view:*)",
-      "Bash(git push:*)"
+      "mcp__codegraph__*"
     ],
     "defaultMode": "auto"
   },
-  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -43,33 +38,5 @@
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
   "switchModelsOnFlag": true,
-  "skipAutoPermissionPrompt": true,
-  "autoMode": {
-    "environment": [
-      "### Org-wide",
-      "**Organization**: None configured",
-      "**Cloud provider(s)**: None configured",
-      "**Repository visibility**: assume private unless the remote host and repo name indicate otherwise, or a visibility check in the transcript shows public — the gh visibility check was not queryable here and this checkout has no configured remotes, so treat it as private/local-only",
-      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
-      "**Secrets management**: None configured",
-      "**Default / protected branches**: unknown — origin/HEAD is unset and no remote or ruleset data was available; no protected-branch assumptions",
-      "**CI/CD deploy targets**: None configured",
-      "**Network posture**: None configured",
-      "**Source control**: The trusted repo and its remote(s) only (no additional orgs configured) — this checkout at /Users/diptanw has no configured remotes, so all git work is local until a remote is added",
-      "**Trusted internal domains**: None configured",
-      "**Trusted cloud buckets**: None configured",
-      "**Key internal services**: None configured",
-      "**Internal package registry**: None configured",
-      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar. Note this checkout is the home directory managed as a yadm dotfiles repo, so shell history, SSH keys, and shell rc files sit inside the working tree.",
-      "**Data retention / declassification**: None configured",
-      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment (hyphen/underscore/dot-delimited — e.g. matches `prod-db`, not `producer`)",
-      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
-      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
-      "### User-specific",
-      "**Primary use of Claude Code**: software development — dotfiles and local environment configuration in a yadm-managed home directory",
-      "**Trusted repo**: /Users/diptanw, the yadm-managed dotfiles working tree the agent started in, and its configured remote(s) (currently none). With no visibility signal available, treat it as private: confidential material may live there, but secrets and sensitive data (personal & entrusted) are never cleared into any repo by its visibility (see Definitions). Content ported, repointed, or first read from outside this session's repo is not this repo's own work, whoever directed the port.",
-      "**Org-specific CLIs**: yadm (dotfiles management)"
-    ]
-  },
-  "agentPushNotifEnabled": true
+  "skipAutoPermissionPrompt": true
 }

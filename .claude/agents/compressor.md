@@ -1,7 +1,7 @@
 ---
 name: compressor
 description: Strip obvious comments and compact verbose ones in given files, editing them directly
-model: claude-sonnet-5
+model: haiku
 effort: low
 tools: Read, Edit, Bash
 ---
