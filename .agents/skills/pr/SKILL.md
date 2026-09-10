@@ -1,7 +1,7 @@
 ---
 name: pr
 description: Commit all diffs on the current branch and open a PR with a simple, human-sounding description, delegating to the pr-author subagent.
-allowed-tools: Agent, Bash(gh pr *), Bash(git *)
+allowed-tools: Agent, Bash(gh pr *), Bash(git *), Bash(ls *), Bash(cat *)
 ---
 
 # Commit the current branch and open a PR
@@ -25,11 +25,20 @@ that predates this conversation so the agent knows where to look.
 The brief is working context, not draft copy: its structure and any paths in it must not
 survive into the PR description.
 
-## 2. Dispatch
+## 2. Find the PR template
 
-Launch `pr-author` with the brief as the whole prompt. Do not paste the diff.
+Look for a PR template: `.github/pull_request_template.md`, `.github/PULL_REQUEST_TEMPLATE.md`,
+or the same name at the repo root or under `docs/`. Case varies, so `ls` the candidates.
 
-## 3. Report
+If one exists, `cat` it and append its full raw contents to the brief, verbatim, including
+HTML comments and any hidden tags. Fence it and label it as the PR template to fill in.
+
+## 3. Dispatch
+
+Launch `pr-author` with the brief (plus the template, if any) as the whole prompt. Do not
+paste the diff.
+
+## 4. Report
 
 Return the PR URL the agent gives back.
 
