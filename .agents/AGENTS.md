@@ -32,5 +32,3 @@ Write normal prose only when compression risks ambiguity.
 Prefer these over built-in equivalents when available.
 
 @tools/CODEGRAPH.md
-
-@tools/RTK.md
